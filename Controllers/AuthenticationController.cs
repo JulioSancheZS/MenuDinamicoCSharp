@@ -29,7 +29,6 @@ namespace MenuDinamicoAPI.Controllers
         }
 
         [HttpPost]
-        [Route("authentication")]
         public async Task<IActionResult> Authentication([FromBody] Login login)
         {
             Response<UsuarioDTO> _response = new Response<UsuarioDTO>();

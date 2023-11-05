@@ -22,32 +22,33 @@ namespace MenuDinamicoAPI.Controllers
             _itemMenuRepository = itemMenuRepository;
         }
 
+       
         [HttpGet]
-        [Route("lista")]
-        public async Task<IActionResult> Lista()
+        [Route("menu")]
+        public async Task<IActionResult> getMenu()
         {
-            Response<List<ItemMenuDTO>> _response = new Response<List<ItemMenuDTO>>();
+            Response<List<MenuItemDTO>> _response = new Response<List<MenuItemDTO>>();
 
             try
             {
-                List<ItemMenuDTO> _listaItemMenu = new List<ItemMenuDTO>();
+                List<MenuItemDTO> _listaItemMenu = new List<MenuItemDTO>();
 
-                _listaItemMenu = _mapper.Map<List<ItemMenuDTO>>(await _itemMenuRepository.ListaMenu());
-
+                _listaItemMenu = _mapper.Map<List<MenuItemDTO>>(await _itemMenuRepository.ListaMenuNew());
                 if (_listaItemMenu.Count > 0)
                 {
-                    _response = new Response<List<ItemMenuDTO>> { status = true, msg = "OK", value = _listaItemMenu };
+                    _response = new Response<List<MenuItemDTO>> { status = true, msg = "OK", value = _listaItemMenu };
                 }
                 else
-                    _response = new Response<List<ItemMenuDTO>> { status = false, msg = "Sin Resultados", value = _listaItemMenu };
+                    _response = new Response<List<MenuItemDTO>> { status = false, msg = "Sin Resultados", value = _listaItemMenu };
 
 
                 return StatusCode(StatusCodes.Status200OK, _response);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                _response = new Response<List<MenuItemDTO>> { status = false, msg = ex.Message, value = null };
+                return StatusCode(StatusCodes.Status500InternalServerError, _response);
             }
 
         }

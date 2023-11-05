@@ -62,6 +62,7 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfile)); //AutoMapper
 builder.Services.AddScoped<IRolRepository, RolRepository>();
 builder.Services.AddScoped<IItemMenuRepository, ItemMenuRepository>();
 builder.Services.AddScoped<IUsuarioAutenticacion, UsuarioAutenticacionRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 
 
