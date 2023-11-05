@@ -27,7 +27,7 @@ git clone https://github.com/JulioSancheZS/MenuDinamicoCSharp.git
 
 2. Abre el proyecto en Visual Studio 2022
 
-3.  [Acá esta el Script SQL, ejecutalo en SQL Server](https://github.com/TuUsuario/TuRepositorio/tree/main/SQLDB/mi_script.sql)
+3.  [Acá esta el Script SQL, ejecutalo en SQL Server](https://github.com/JulioSancheZS/MenuDinamicoCSharp/blob/master/ScriptSQL/MenuDBEjemplo.sql)
 
 4. Configura la cadena de conexión a tu instancia de SQL Server en el archivo 
 `appsettings.json`:
